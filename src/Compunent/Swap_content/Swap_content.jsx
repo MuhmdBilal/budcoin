@@ -67,13 +67,13 @@ function Swap_content() {
       const swap = swapContract();
       if (amount) {
         const value = amount * 1000000;
-        let getAmountsOut = await swap.methods
+        let getAmountsOuts = await swap.methods
           .getAmountsOut(value, address)
           .call();
-        let budsValue = Number(getAmountsOut[1]) / 1e18;
+        let budsValue = Number(getAmountsOuts[1]) / 1e18;
         const object = {
-          realAmount: Number(getAmountsOut[0]),
-          budsValues: Number(getAmountsOut[1]),
+          realAmount: Number(getAmountsOuts[0]),
+          budsValues: getAmountsOuts[1].toString(),
           convertBusdValue: budsValue,
         };
         setCalculateValue(object);
@@ -225,10 +225,10 @@ function Swap_content() {
           <button
             className={` w-100 ${
               usdBalance <= 0 || amount > usdBalance || loading
-                ? "btn_connect"
-                : "swap_icon"
+                ? "disable-button"
+                : "btn_connect"
             }`}
-            // disabled={usdBalance <= 0 || amount > usdBalance || loading}
+            disabled={usdBalance <= 0 || amount > usdBalance || loading}
             onClick={handleSwap}
           >
             {loading ? (

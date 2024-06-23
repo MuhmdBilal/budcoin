@@ -1073,9 +1073,20 @@ p {
   border: 1px solid rgb(78, 78, 77);
   border-radius: 50pc;
   width: fit-content;
+  color: #07113e;
+  font-weight: 900;
+  padding: 12px 23px;
   position: absolute;
   top: 47%;
   left: 44%;
+}
+.disable-button{
+  z-index: 999;
+  background-color: #e3e3e9;
+  border: 1px solid rgb(78, 78, 77);
+  border-radius: 50pc;
+  width: fit-content;
   color: #07113e;
   font-weight: 900;
+  padding: 12px 23px;
 }
